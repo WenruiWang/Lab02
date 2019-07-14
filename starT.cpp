@@ -10,7 +10,7 @@ int num_of_stars_on_each_line=1;
 int num_spaces=width-num_of_stars_on_each_line;
 int num_spaces_each_side=num_spaces/2;
 int i=0;
-	        if(width%2==0||height<2){
+	        if(width%2==0||width<3||height<2){
 		         exit(1);
 		}
 
