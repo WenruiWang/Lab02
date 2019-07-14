@@ -22,7 +22,7 @@ string starZ(int width){
 		result+="*";
 		result+="\n";
 
-
+	
 	}
 	while(s<1){for(int f=0;f<width;f++){
 		result+="*";
