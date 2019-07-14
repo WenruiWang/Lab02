@@ -5,27 +5,6 @@ using namespace std;
 void assertEquals(string expected, string actual, string message);
 string starZ(int width);
 void runTests(void);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 string starZ(int width){
 	if(width<3){
 		exit(1);
@@ -43,7 +22,15 @@ string starZ(int width){
 		for(int x=0;x<width-k-2;x++){
 			result+=" ";}
 		result+="*";
-		result+="\n";
+	for(int x=0; x<k-1;x++){
+		result+=" ";}
+
+		
+		
+			result+="\n";
+	
+	
+	
 	} 
 
 	while(s<1){for(int f=0;f<width;f++){
