@@ -1,45 +1,66 @@
-#include<iostream>
-#include<cstdlib>
-#include<string>
+#include <iostream>
+#include <cstdlib>
+#include <string>
 using namespace std;
+
 void assertEquals(string expected, string actual, string message);
 string starZ(int width);
 void runTests(void);
-string starZ(int width){
-	if(width<3){
-		exit(1);
-	}
 
+// Write starZ per specifictions at 
+// https://foo.cs.ucsb.edu/16wiki/index.php/F14:Labs:lab04
+// and so that internal tests pass, and submit.cs system tests pass
 
-	string result="";
-	int i=0;
-	int s=0;
-	while(i<1){for(int j=0;j<width;j++){
-		result+="*";
-	}i=i+1;}
-	result+="\n";
-	for(int k=0;k<width-2;k++){
-		for(int x=0;x<width-k-2;x++){
-			result+=" ";}
-		result+="*";
-	for(int x=0; x<k-1;x++){
-		result+=" ";}
+// starZ is A C++ function that returns a string that, when printed on cout,
+// renders the letter Z with stars as ASCII art, 
+// at any width, provided width >=3
+// If less than 3, the function should return an empty string.
 
-		
-		
-			result+="\n";
-	
-	
-	
-	} 
+// When width is >=3, the length of the result string
+// should be (width + 1) * width (where the +1 is for the \n).    
 
-	while(s<1){for(int f=0;f<width;f++){
-		result+="*";
-	}
-	s+=1;
-	}   result+="\n";
-	return result;}
+// For examples, see the test cases in runTests().
 
+// Note that the trailing spaces on each line are REQUIRED
+// for the function to be considered correct.
+
+string starZ(int width)
+{
+
+  string result="";
+  // check if parameters are valid
+  if ((width<=2)) {
+    return result;  // return without printing anything
+  }
+  
+  // add the first row of width stars  
+  for (int col=1; col<=width; col++) {
+    result += "*";
+  }
+  result += "\n";
+
+  // add the height-2 rows that are a single star
+  for (int row=2; row<=width-1; row++) { // same as starC, start at second row, save one row for full width stars
+    for (int col=1; col<=width-row; col++) { 
+      result += " ";
+    }
+    result += "*";
+    
+    for (int col=((width-row)+2); col<=width; col++){
+      result += " ";
+    }
+
+    result += "\n";
+  }
+  // add the final row of width stars  
+  for (int col=1; col<=width; col++) {
+    result += "*";
+  }
+  result += "\n";  
+  return result;   
+}
+
+// Test-Driven Development; check expected results against actual
 
 void runTests(void) {
 
@@ -77,36 +98,31 @@ void assertEquals(string expected, string actual, string message="") {
 }
 
 
+// Main function
+
+int main(int argc, char *argv[])
+{
+
+  // check for parameters
+  // and print usage message
+  if (argc!=2) {
+    cerr << "Usage: " << argv[0] << " width" << endl;
+    exit(1);
+  }
+  
+  // get width  from command line args
+  int width = stoi(argv[1]);
+
+  // If the program is executed with parameters -1 unit test
+  // the starZ() function using our automated test framework
+  if (width==-1) {  //checks if it is -1; 
+    runTests(); // if so, call runTests()
+    exit(0);   // then exit.
+  }
+
+  cout << starZ(width); //calls the starZ function and prints the result on cout (without an extra newline)
+  return 0;
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	int main(int argc,char*argv[]){
-		if(argc!=2){
-			cerr<<"Assertion failed";
-			exit(1);
-		}
-		int m=atoi(argv[1]);
-		cout<<starZ(m);
-		return 0;
-	}
