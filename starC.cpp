@@ -4,7 +4,7 @@
 using namespace std;
 
 string starC(int width,int height){
-	if(height<=2){
+	if(height<=2||width<=1){
 	return "";}
 
 	int num_spaces=width-1;

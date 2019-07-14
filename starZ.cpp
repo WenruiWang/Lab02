@@ -20,10 +20,10 @@ string starZ(int width){
 		for(int x=0;x<width-k-2;x++){
 			result+=" ";}
 		result+="*";
-		for(int x=0;x<k-1;x++){
-			result+=" ";}
 		result+="\n";
-	} 
+
+
+	}
 	while(s<1){for(int f=0;f<width;f++){
 		result+="*";
 	}

@@ -2,7 +2,7 @@
 #include<cstdlib>
 #include<string>
 using namespace std;
-
+	
 
 string starT(int width,int height){
 string result="";
