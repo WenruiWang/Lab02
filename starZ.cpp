@@ -34,26 +34,26 @@ string starZ(int width)
   }
   
   // add the first row of width stars  
-  for (int col=1; col<=width; col++) {
+  for (int j=0; j<width; j++) {
     result += "*";
   }
   result += "\n";
 
   // add the height-2 rows that are a single star
-  for (int row=2; row<=width-1; row++) { // same as starC, start at second row, save one row for full width stars
-    for (int col=1; col<=width-row; col++) { 
+  for (int k=0; k<width-2; k++) { // same as starC, start at second row, save one row for full width stars
+    for (int x=0; x<width-k-2; x++) { 
       result += " ";
     }
     result += "*";
     
-    for (int col=((width-row)+2); col<=width; col++){
+    for (int x=0; x<=k-1; x++){
       result += " ";
     }
 
     result += "\n";
   }
   // add the final row of width stars  
-  for (int col=1; col<=width; col++) {
+  for (int f=0; f<width; f++) {
     result += "*";
   }
   result += "\n";  
