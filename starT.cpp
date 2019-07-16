@@ -113,8 +113,8 @@ int main(int argc, char *argv[])
   }
   
   // get width and height from command line args
-  int width = stoi(argv[1]);
-  int height = stoi(argv[2]);
+  int width = atoi(argv[1]);
+  int height = atoi(argv[2]);
 
   // If the program is executed with parameters -1 -1 unit test
   // the starT() function using our automated test framework

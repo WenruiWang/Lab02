@@ -100,18 +100,18 @@ void assertEquals(string expected, string actual, string message="") {
 
 // Main function
 
-int main(int argc, char *argv[])
-{
+	int main(int argc, char *argv[])
+	{
 
   // check for parameters
   // and print usage message
   if (argc!=2) {
     cerr << "Usage: " << argv[0] << " width" << endl;
     exit(1);
-  }
+	  }
   
   // get width  from command line args
-  int width = stoi(argv[1]);
+ 	 int width = atoi(argv[1]);
 
   // If the program is executed with parameters -1 unit test
   // the starZ() function using our automated test framework
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
     exit(0);   // then exit.
   }
 
-  cout << starZ(width); //calls the starZ function and prints the result on cout (without an extra newline)
+ 	 cout << starZ(width); //calls the starZ function and prints the result on cout (without an extra newline)
   return 0;
 
 }

@@ -5,23 +5,8 @@ using namespace std;
 
 void assertEquals(string expected, string actual, string message);
 string starC(int width, int height);
-void runTests(void);
+	void runTests(void);
 
-// Write starC per specifictions in the lab writeup
-// so that internal tests pass, and submit.cs system tests pass
-
-// starC is A C++ function that returns a string that, when printed on cout,
-// renders the letter C with stars as ASCII art, 
-// at any width or height, provided width is >=2 and height is >=3
-// If either is not, the function should return an empty string.
-
-// When width is >=2 and height is >=3, the length of the result string
-// should be (width + 1) * height (where the +1 is for the \n).    
-
-// For examples, see the test cases in runTests().
-
-// Note that the trailing spaces on each line are REQUIRED
-// for the function to be considered correct.
 
 string starC(int width, int height)
 {
@@ -31,14 +16,11 @@ string starC(int width, int height)
     return result;  // return without printing anything
   }
   
-  // add the first row of width stars  
   for (int col=1; col<=width; col++) {
     result += "*";
   }
   result += "\n";    
 
-  // add the height-2 rows that are a single star
-  // followed by width-1 spaces, then a \n
   for (int row=2; row<=height-1; row++) { //similar to starL, but starts at second row and save the last row for full width stars
     result += "*";
     for (int col=2; col<=width; col++) {
@@ -114,15 +96,14 @@ int main(int argc, char *argv[])
     exit(1);
   }
   
-  // get width and height from command line args
-  int width = stoi(argv[1]);
-  int height = stoi(argv[2]);
+ 
+  int width = atoi(argv[1]);
+  int height = atoi(argv[2]);
 
-  // If the program is executed with parameters -1 -1 unit test
-  // the starC() function using our automated test framework
-  if (width==-1 && height==-1) {  //checks if they are both -1; 
-    runTests(); // if so, call runTests()
-    exit(0);   // then exit.
+  
+  if (width==-1 && height==-1) {  
+    runTests(); 
+    exit(0);   
   }
 
   cout << starC(width,height); //calls the starC function and prints the result on cout (without an extra newline)
